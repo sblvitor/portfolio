@@ -12,8 +12,10 @@ import '../styles/global.css'
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
 	</head>
-	<body class="min-h-screen">
-		<slot />
+	<body class="bg-cover bg-center bg-no-repeat bg-fixed" style="background-image: url('/src/assets/day_landscape.png');">
+		<main class="min-h-screen flex flex-col">
+			<slot />
+		</main>
 		<div class="fixed z-50 pointer-events-auto bottom-4 left-1/2 -translate-x-1/2 md:bottom-8
 				max-md:right-4 max-md:left-auto max-md:translate-x-0">
 			<FloatingDock client:load />

@@ -167,3 +167,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+.dark body {
+  background-image: url('/src/assets/night_landscape.png') !important;
+}
