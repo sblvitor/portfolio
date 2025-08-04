@@ -1,5 +1,8 @@
 ---
+import ThemeToggle from '@/components/ThemeToggle.astro'
+import Navbar from '@/components/Navbar.tsx'
 import '../styles/global.css'
+const { pageTitle } = Astro.props
 ---
 
 <!doctype html>
@@ -7,11 +10,15 @@ import '../styles/global.css'
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/png" href="/vl_favicon.png" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
+		<div class="relative w-full flex items-center justify-center">
+			<Navbar client:load />
+		</div>
+		<ThemeToggle />
 		<main class="min-h-screen flex flex-col">
 			<slot />
 		</main>
