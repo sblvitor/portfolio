@@ -1,7 +1,6 @@
 ---
-import ThemeToggle from '@/components/ThemeToggle.astro'
-import Navbar from '@/components/Navbar.tsx'
 import '../styles/global.css'
+import Navbar from '@/components/Navbar.astro'
 const { pageTitle } = Astro.props
 ---
 
@@ -14,12 +13,9 @@ const { pageTitle } = Astro.props
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
 	</head>
-	<body>
-		<div class="relative w-full flex items-center justify-center">
-			<Navbar client:load />
-		</div>
-		<ThemeToggle />
-		<main class="min-h-screen flex flex-col">
+	<body class="min-h-screen flex flex-col">
+		<Navbar />
+		<main class="flex-1 container mx-auto px-4 py-8">
 			<slot />
 		</main>
 	</body>

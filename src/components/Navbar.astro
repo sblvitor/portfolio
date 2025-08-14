@@ -1,0 +1,31 @@
+---
+import ThemeToggle from "./ThemeToggle.astro";
+const links = [
+    { label: 'Blog', href: '/blog' },
+    { label: 'Projetos', href: '/projects' },
+]
+---
+
+<header class="container mx-auto px-4">
+    <div class="flex items-center justify-between h-24">
+        <a href="/">vlira.dev</a>
+        <nav aria-label="Main navigation">
+            <ul class="flex items-center bg-white/75 bg-gradient-to-r from-pink-200/40 via-violet-200/40 to-indigo-200/40 border border-white/50 px-3 text-sm font-medium text-gray-800 shadow-lg shadow-gray-799/5 ring-1 ring-gray-800/[.075] backdrop-blur-xl rounded-full">
+                { links.map(link => (
+                    <li>
+                        <a 
+                            class="flex-none group relative block transition duration-300 px-3 py-2.5 hover:text-violet-600"
+                            href={link.href}>
+                            {link.label}
+                            <span class="absolute inset-x-1 h-px bg-gradient-to-r from-violet-500/0 from-10% via-violet-400 to-violet-500/0 to-90% transition duration-300 -bottom-0.5 opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100"></span>
+                            <span class="overflow-hidden absolute inset-0 transition origin-bottom duration-300 opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100">
+                                <span class="absolute inset-x-4 -bottom-2 h-full bg-gradient-to-t from-violet-500/20 to-transparent blur rounded-t-full"></span>
+                            </span>
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        </nav>
+        <ThemeToggle />
+    </div>
+</header>
