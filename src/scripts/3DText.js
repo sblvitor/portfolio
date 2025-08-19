@@ -63,7 +63,7 @@ fontLoader.load(
                 font,
                 size: 0.5,
                 depth: 0.2,
-                curveSegments: 5,
+                curveSegments: 12,
                 bevelEnabled: true,
                 bevelThickness: 0.03,
                 bevelSize: 0.02,
@@ -73,18 +73,18 @@ fontLoader.load(
         )
         textGeometry.center()
 
-        const material = new THREE.MeshMatcapMaterial({ matcap: matcapTexture })
+        const material = new THREE.MeshNormalMaterial()
         text.geometry = textGeometry
         text.material = material
         scene.add(text)
 
         const donutGeometry = new THREE.TorusGeometry(0.3, 0.2, 20, 45)
-        for(let i = 0; i < 100; i++) {
+        for(let i = 0; i < 200; i++) {
             const donut = new THREE.Mesh(donutGeometry, material)
 
-            donut.position.x = (Math.random() - 0.5) * 10
-            donut.position.y = (Math.random() - 0.5) * 10
-            donut.position.z = (Math.random() - 0.5) * 10
+            donut.position.x = (Math.random() - 0.5) * 15
+            donut.position.y = (Math.random() - 0.5) * 15
+            donut.position.z = (Math.random() - 0.5) * 15
 
             donut.rotation.x = Math.random() * Math.PI
             donut.rotation.z = Math.random() * Math.PI
@@ -96,12 +96,31 @@ fontLoader.load(
 
             scene.add(donut)
         }
+
+        const cubeGeometry = new THREE.BoxGeometry(1, 1, 1)
+        for(let i = 0; i < 50; i++) {
+            const cube = new THREE.Mesh(cubeGeometry, material)
+
+            cube.position.x = (Math.random() - 0.5) * 15
+            cube.position.y = (Math.random() - 0.5) * 15
+            cube.position.z = (Math.random() - 0.5) * 15
+
+            cube.rotation.x = Math.random() * Math.PI
+            cube.rotation.z = Math.random() * Math.PI
+
+            const scale = Math.random()
+            cube.scale.x = scale
+            cube.scale.y = scale
+            cube.scale.z = scale
+
+            scene.add(cube)
+        }
     }
 )
 
 // Camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-camera.position.z = 3
+camera.position.set(-30, 4, 3)
 scene.add(camera)
 
 // Renderer
@@ -118,14 +137,15 @@ const targetCameraPosition = new THREE.Vector3()
 const animate = () => {
 
     // update camera
-    targetCameraPosition.x = - Math.sin(cursor.x * Math.PI) * 6
-    targetCameraPosition.z = Math.cos(cursor.x * Math.PI) * 3
+    targetCameraPosition.x = - Math.sin(cursor.x * Math.PI * 0.7) * 10
+    targetCameraPosition.z = Math.cos(cursor.x * Math.PI * 0.7) * 3
     targetCameraPosition.y = - cursor.y * 10
 
-    camera.position.lerp(targetCameraPosition, 0.05)
+    camera.position.lerp(targetCameraPosition, 0.03)
 
     camera.lookAt(text.position)
     
+    // render
     renderer.render(scene, camera)
 
     window.requestAnimationFrame(animate)
