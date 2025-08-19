@@ -113,13 +113,17 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
 const clock = new THREE.Clock()
 
+const targetCameraPosition = new THREE.Vector3()
 // tick in course
 const animate = () => {
 
     // update camera
-    camera.position.x = Math.sin(cursor.x * Math.PI) * 8
-    camera.position.z = Math.cos(cursor.x * Math.PI) * 3
-    camera.position.y = cursor.y * 10
+    targetCameraPosition.x = - Math.sin(cursor.x * Math.PI) * 6
+    targetCameraPosition.z = Math.cos(cursor.x * Math.PI) * 3
+    targetCameraPosition.y = - cursor.y * 10
+
+    camera.position.lerp(targetCameraPosition, 0.05)
+
     camera.lookAt(text.position)
     
     renderer.render(scene, camera)
