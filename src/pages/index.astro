@@ -1,9 +1,13 @@
 ---
+import { InfoHover } from '@/components/info-hover';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout pageTitle="Vitor Lira">
 	<canvas class="webgl"></canvas>
+	<div class="absolute top-4 right-6">
+		<InfoHover client:load />
+	</div>
 	<script>
 		import "../scripts/3DText.js"
 	</script>
