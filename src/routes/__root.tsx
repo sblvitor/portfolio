@@ -43,11 +43,13 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body>
+      <body className="min-h-svh overflow-x-hidden">
         <ThemeProvider>
           <TooltipProvider>
-            <ThemeToggle />
-            {children}
+            <main className="mx-auto min-h-svh w-full max-w-5xl">
+              <ThemeToggle />
+              {children}
+            </main>
             <TanStackDevtools
               config={{
                 position: "bottom-right",
