@@ -1,7 +1,7 @@
 import { useTheme } from "@lonik/themer"
 import { Button } from "./ui/button"
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip"
-import { useCallback } from "react"
+import { type MouseEvent, useCallback } from "react"
 import { MoonIcon } from "./animated-icons/moon"
 import { SunMediumIcon } from "./animated-icons/sun-medium"
 
@@ -12,12 +12,37 @@ export const ThemeToggle = () => {
     setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
   }, [resolvedTheme, setTheme])
 
-  const onToggleTheme = useCallback(() => {
+  const onToggleTheme = useCallback((event: MouseEvent<HTMLButtonElement>) => {
     if (!document.startViewTransition) {
       switchTheme()
       return
     }
-    document.startViewTransition(switchTheme)
+
+    const { left, top, width, height } = event.currentTarget.getBoundingClientRect()
+    const x = left + width / 2
+    const y = top + height / 2
+    const endRadius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y),
+    )
+
+    const transition = document.startViewTransition(switchTheme)
+
+    transition.ready.then(() => {
+      document.documentElement.animate(
+        {
+          clipPath: [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${endRadius}px at ${x}px ${y}px)`,
+          ],
+        },
+        {
+          duration: 600,
+          easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+          pseudoElement: "::view-transition-new(root)",
+        },
+      )
+    })
   }, [switchTheme])
 
   return (

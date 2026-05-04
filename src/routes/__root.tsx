@@ -5,7 +5,7 @@ import { ThemeProvider } from '@lonik/themer'
 
 import appCss from "../styles.css?url"
 import { TooltipProvider } from "@/components/ui/tooltip"
-import { ThemeToggle } from "@/components/theme-toggle"
+import { Header } from "@/components/header"
 
 export const Route = createRootRoute({
   head: () => ({
@@ -46,10 +46,8 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <body className="min-h-svh overflow-x-hidden">
         <ThemeProvider>
           <TooltipProvider>
-            <main className="mx-auto min-h-svh w-full max-w-5xl">
-              <ThemeToggle />
-              {children}
-            </main>
+            <Header />
+            {children}
             <TanStackDevtools
               config={{
                 position: "bottom-right",
