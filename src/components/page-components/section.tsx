@@ -4,7 +4,7 @@ export const Section = ({ children, className, ...props }: React.ComponentPropsW
   return (
     <section 
       className={cn(
-        'max-w-5xl w-full border-x px-4',
+        'max-w-5xl w-full border-x',
         className
       )}
       {...props}
