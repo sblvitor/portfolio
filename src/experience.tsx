@@ -1,4 +1,4 @@
-import { Environment, OrbitControls} from "@react-three/drei"
+import { Environment, Float, OrbitControls} from "@react-three/drei"
 import { Suspense } from "react"
 import { LaptopModel } from "./laptop-model"
 
@@ -9,10 +9,11 @@ export const Experience = () => {
       <OrbitControls />
 
       <Environment preset="city" />
-
-      <Suspense>
-        <LaptopModel position={[0, -1, 0]} />
-      </Suspense>
+      <Float rotationIntensity={0.4}>
+        <Suspense>
+          <LaptopModel position-y={-0.7} />
+        </Suspense>
+      </Float>
     </>
   )
 }

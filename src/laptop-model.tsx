@@ -12,7 +12,7 @@ export const LaptopModel = (props: any) => {
   const { scene, animations } = useGLTF('./macbook_pro_13_inch_2020.glb')
 
   const { scale } = useControls('laptop', {
-    scale: { value: 15, min:0, max: 50 }
+    scale: { value: 12, min:0, max: 50 }
   })
 
   const { actions } = useAnimations(animations, scene)
