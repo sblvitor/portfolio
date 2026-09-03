@@ -13,6 +13,7 @@ function App() {
           position: [-4, 3, 6]
         }}
       >
+        <color args={['#1a1a24']} attach={'background'} />
         <Experience />
       </Canvas>
     </>
