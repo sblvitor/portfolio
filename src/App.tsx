@@ -1,5 +1,6 @@
 import { Canvas } from "@react-three/fiber"
 import { Experience } from "./experience"
+import { Perf } from 'r3f-perf'
 
 function App() {
 
@@ -13,7 +14,8 @@ function App() {
           position: [-3, 1.5, 4]
         }}
       >
-        <color args={['#1a1a24']} attach={'background'} />
+        <Perf position="top-left" />
+        <color args={['#211a24']} attach={'background'} />
         <Experience />
       </Canvas>
     </>
