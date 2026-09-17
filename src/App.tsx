@@ -1,8 +1,11 @@
 import { Canvas } from "@react-three/fiber"
 import { Experience } from "./experience"
 import { Perf } from 'r3f-perf'
+import { Leva } from "leva"
 
 function App() {
+
+  const hasDebugHash = window.location.hash === '#debug'
 
   return (
     <>
@@ -15,10 +18,11 @@ function App() {
           position: [-3, 1.5, 4]
         }}
       >
-        <Perf position="top-left" />
+        { hasDebugHash && <Perf position="top-left" /> }
         <color args={['#12141F']} attach={'background'} />
         <Experience />
       </Canvas>
+      <Leva hidden={!hasDebugHash} />
     </>
   )
 }
