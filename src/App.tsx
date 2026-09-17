@@ -16,7 +16,7 @@ function App() {
         }}
       >
         <Perf position="top-left" />
-        <color args={['#211a24']} attach={'background'} />
+        <color args={['#12141F']} attach={'background'} />
         <Experience />
       </Canvas>
     </>

@@ -1,4 +1,4 @@
-import { ContactShadows, Environment, Float, PresentationControls} from "@react-three/drei"
+import { ContactShadows, Environment, Float, PresentationControls, Text } from "@react-three/drei"
 import { Suspense } from "react"
 import { LaptopModel } from "./laptop-model"
 import { useControls } from "leva"
@@ -29,13 +29,22 @@ export const Experience = () => {
             width={2.5}
             height={1.65}
             intensity={15}
-            color={'#F5F5F5'}
+            color={'#B3CCFF'}
             rotation={[0.1, Math.PI, 0]}
             position={[0, 0.55, -1.55]}
           />
           <Suspense>
             <LaptopModel position-y={-1.1} />
           </Suspense>
+          <Text
+            font="./bangers-v25-latin-regular.woff"
+            position={[2.2, 0.75, 0.1]}
+            rotation-y={- 1.25}
+            maxWidth={2}
+            textAlign="center"
+          >
+            VITOR LIRA
+          </Text>
         </Float>
       </PresentationControls>
       <ContactShadows
