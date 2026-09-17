@@ -25,6 +25,14 @@ export const Experience = () => {
         damping={0.1}
       >
         <Float rotationIntensity={0.4}>
+          <rectAreaLight 
+            width={2.5}
+            height={1.65}
+            intensity={15}
+            color={'#F5F5F5'}
+            rotation={[0.1, Math.PI, 0]}
+            position={[0, 0.55, -1.55]}
+          />
           <Suspense>
             <LaptopModel position-y={-1.1} />
           </Suspense>
