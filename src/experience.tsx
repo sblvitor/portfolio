@@ -1,4 +1,4 @@
-import { ContactShadows, Environment, Float, OrbitControls} from "@react-three/drei"
+import { ContactShadows, Environment, Float, PresentationControls} from "@react-three/drei"
 import { Suspense } from "react"
 import { LaptopModel } from "./laptop-model"
 import { useControls } from "leva"
@@ -14,14 +14,22 @@ export const Experience = () => {
 
   return (
     <>
-      <OrbitControls />
-
       <Environment preset="city" />
-      <Float rotationIntensity={0.4}>
-        <Suspense>
-          <LaptopModel position-y={-1.1} />
-        </Suspense>
-      </Float>
+      <PresentationControls
+        rotation={[0.13, 0.1, 0]}
+        global
+        cursor={false}
+        snap={true}
+        polar={[-0.4, 0.2]}
+        azimuth={[-1, 0.75]}
+        damping={0.1}
+      >
+        <Float rotationIntensity={0.4}>
+          <Suspense>
+            <LaptopModel position-y={-1.1} />
+          </Suspense>
+        </Float>
+      </PresentationControls>
       <ContactShadows
         position-y={positionY}
         opacity={opacity}
