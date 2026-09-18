@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'Bangers';
+  src: url('/bangers-v25-latin-regular.woff') format('woff');
+  font-display: swap;
+}
+
 html,
 body,
 #root {
@@ -18,4 +24,70 @@ body,
   border: none;
   border-radius: 20px;
   background: #000000;
+}
+
+.btn {
+  all: unset;
+  font-family: 'Bangers', sans-serif;
+  white-space: nowrap;
+  cursor: pointer;
+  display: block;
+  font-size: var(--btn-size, 30px);
+  padding: 0.4em 1em;
+  letter-spacing: 0.06em;
+  color: #17203a;
+  background: #ffffff;
+  border-radius: 999px;
+  box-shadow:
+    0 6px 0 #8fb3f5,
+    0 12px 22px rgba(0, 0, 0, 0.35);
+  opacity: 1;
+  scale: 1;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease,
+    opacity 0.35s ease 0.35s,
+    scale 0.35s ease 0.35s;
+}
+
+.btn:hover {
+  background: #b3ccff;
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 0 #6e94dd,
+    0 16px 28px rgba(0, 0, 0, 0.4);
+}
+
+.btn:active {
+  transform: translateY(4px);
+  box-shadow:
+    0 2px 0 #6e94dd,
+    0 5px 10px rgba(0, 0, 0, 0.35);
+}
+
+.btn:focus-visible {
+  outline: 3px solid #b3ccff;
+  outline-offset: 4px;
+}
+
+.btn--small {
+  --btn-size: 18px;
+}
+
+.btn.is-hidden {
+  opacity: 0;
+  scale: 0.92;
+  pointer-events: none;
+  transition:
+    opacity 0.2s ease,
+    scale 0.2s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .btn.is-hidden {
+    transition-duration: 0.01ms;
+    transition-delay: 0ms;
+  }
 }
