@@ -26,7 +26,7 @@ function App() {
         <Experience />
       </Canvas>
       <Loader
-        containerStyles={{ background: "#17203a", position: "fixed" }}
+        containerStyles={{ background: "#12141f", position: "fixed" }}
         innerStyles={{ width: 240, height: 6, background: "rgba(255,255,255,0.2)" }}
         barStyles={{ height: 6, background: "#b3ccff" }}
         dataStyles={{ fontFamily: "'Bangers', sans-serif", fontSize: 24, color: "#fff" }}
