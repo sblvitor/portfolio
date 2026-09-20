@@ -51,7 +51,7 @@ export const Experience = () => {
             rotation={[0.1, Math.PI, 0]}
             position={[0, 0.55, -1.55]}
           />
-          <Suspense>
+          <Suspense fallback={null}>
             <LaptopModel position-y={-1.1} />
           </Suspense>
           <Text
@@ -68,6 +68,7 @@ export const Experience = () => {
             position={[2.1, -0.4, 0.1]}
             rotation-y={-1.25}
             scale={0.25}
+            zIndexRange={[0, 5]}
             pointerEvents={focused ? 'none' : 'auto'}
           >
             <button
