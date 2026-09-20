@@ -2,6 +2,7 @@ import { Canvas } from "@react-three/fiber"
 import { Experience } from "./experience"
 import { Perf } from 'r3f-perf'
 import { Leva } from "leva"
+import { SmallScreenOverlay } from "./small-screen-overlay"
 
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
 
   return (
     <>
+      <SmallScreenOverlay />
       <Canvas
         className="r3f"
         camera={{
